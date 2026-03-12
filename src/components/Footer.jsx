@@ -36,8 +36,8 @@ const Footer = () => {
                         <h4 className="text-[#218CA1] text-[18px] font-semibold mb-6">Contact</h4>
                         <ul className="flex flex-col space-y-4">
                             <li><Link href="https://www.runtime-solutions.com/contact/" className="text-black hover:text-[#218CA1] transition-colors underline decoration-[#218CA1]/30 underline-offset-4 decoration-1">Contact & Location</Link></li>
-                            <li><a href="tel:+918310972324" className="text-black hover:text-[#218CA1] transition-colors underline decoration-[#218CA1]/30 underline-offset-4 decoration-1">+91 83109 72324</a></li>
-                            <li><a href="mailto:talktous@runtimesolutions.com" className="text-black hover:text-[#218CA1] transition-colors underline decoration-[#218CA1]/30 underline-offset-4 decoration-1">talktous@runtimesolutions.com</a></li>
+                            {/* <li><a href="tel:+918310972324" className="text-black hover:text-[#218CA1] transition-colors underline decoration-[#218CA1]/30 underline-offset-4 decoration-1">+91 83109 72324</a></li> */}
+                            <li><a href="mailto:info@runtimesolutions.com" className="text-black hover:text-[#218CA1] transition-colors underline decoration-[#218CA1]/30 underline-offset-4 decoration-1">info@runtimesolutions.com</a></li>
                         </ul>
                     </div>
 
