@@ -334,7 +334,7 @@ const Benefits = () => {
     };
 
     return (
-        <section className="relative w-full overflow-hidden font-['Poppins']">
+        <section id="benefits" className="relative w-full overflow-hidden font-['Poppins']">
 
             {/* ── striped orange background ── */}
             <StripedBg />

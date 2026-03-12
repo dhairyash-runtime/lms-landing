@@ -26,7 +26,7 @@ const features = [
         link: '#',
         imagePosition: 'right',
         imageBg: 'linear-gradient(135deg, #d3ebf0 0%, #faf8c8 100%)',
-        image: 'https://framerusercontent.com/images/8pQqkuHynaUPj2mktnRZmlu9BQ.png',
+        image: '/course_management.png',
     },
     {
         id: 'exams-assessments',
@@ -44,7 +44,7 @@ const features = [
         link: '#',
         imagePosition: 'right',
         imageBg: 'linear-gradient(135deg, #e0f2f4 0%, #fcfce3 100%)',
-        image: 'https://framerusercontent.com/images/EOWudoxwg803abwQoQufmqIOjg0.png',
+        image: '/webminar.png',
     },
     {
         id: 'mobile-application',
@@ -53,7 +53,7 @@ const features = [
         link: '#',
         imagePosition: 'left',
         imageBg: 'linear-gradient(135deg, #fcfce3 0%, #e0f2f4 100%)',
-        image: 'https://framerusercontent.com/images/caZmyiGQ9Low3tsVTTTvQApDPg.png',
+        image: '/mobile_app.png',
     },
     {
         id: 'certification-engine',
@@ -62,7 +62,7 @@ const features = [
         link: '#',
         imagePosition: 'right',
         imageBg: 'linear-gradient(135deg, #d3ebf0 0%, #faf8c8 100%)',
-        image: 'https://framerusercontent.com/images/xb6qKKA1vbBV9HsKy7EIF1gN7J4.png',
+        image: '/certificate_engine.png',
     },
 ];
 
@@ -306,6 +306,7 @@ const FeaturesModule = () => {
             {/* Section tall enough for all card transitions */}
             <section
                 ref={sectionRef}
+                id="features-module"
                 className="fm-section"
                 style={{ height: `${sectionHeight}px` }}
             >

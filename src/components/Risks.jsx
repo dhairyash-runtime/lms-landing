@@ -101,7 +101,7 @@ const Risks = () => {
                 }
             `}</style>
 
-            <section className="w-full font-['Poppins'] bg-white flex flex-col items-center pt-20 pb-0 md:pt-28 px-5 md:px-10 lg:px-20">
+            <section id="risks" className="w-full font-['Poppins'] bg-white flex flex-col items-center pt-20 pb-0 md:pt-28 px-5 md:px-10 lg:px-20">
 
                 {/* Pill label — no shimmer behind this */}
                 <span className="inline-block text-[#218CA1] text-[11px] md:text-[13px] border border-[#218CA1] rounded-full px-3 py-[5px] mb-5 md:mb-6 tracking-wide">

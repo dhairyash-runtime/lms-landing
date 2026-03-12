@@ -244,7 +244,7 @@ const Collaborations = () => {
     }, []);
 
     return (
-        <section className="relative w-full font-['Poppins'] overflow-hidden">
+        <section id="collaborations" className="relative w-full font-['Poppins'] overflow-hidden">
 
             {/* Blue striped background */}
             <BlueStripedBg />

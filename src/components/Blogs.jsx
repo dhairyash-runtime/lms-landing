@@ -75,7 +75,7 @@ const Blogs = () => {
     }, []);
 
     return (
-        <section className="relative w-full font-['Poppins'] bg-white"
+        <section id="blogs" className="relative w-full font-['Poppins'] bg-white"
             style={{ paddingTop: '70px', paddingBottom: '80px' }}>
 
             {/* ── "Blogs & Articles" pill label ── */}
