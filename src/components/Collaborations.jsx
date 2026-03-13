@@ -268,29 +268,39 @@ const Collaborations = () => {
                     </span>
                 </div>
 
-                {/* Marquee */}
-                <div className="w-full max-w-[1440px] overflow-hidden"
-                    style={{
-                        maskImage: 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
-                        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
-                    }}>
-                    <div className="marquee-track">
-                        {[...LOGOS, ...LOGOS].map(({ id, Logo }, i) => (
-                            <div key={`${id}-${i}`} className="flex-shrink-0 mx-3 md:mx-5">
-                                <div
-                                    className="bg-white flex items-center justify-center"
-                                    style={{
-                                        width: '109px',
-                                        height: '102px',
-                                        borderRadius: '8px',
-                                        boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
-                                        padding: '12px',
-                                    }}
-                                >
-                                    <Logo />
-                                </div>
-                            </div>
-                        ))}
+                {/* Partner Badges */}
+                <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+                    <div
+                        className="bg-white flex items-center justify-center"
+                        style={{
+                            width: '160px',
+                            height: '120px',
+                            borderRadius: '12px',
+                            boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
+                            padding: '16px',
+                        }}
+                    >
+                        <img
+                            src="/google_partner_icon.png"
+                            alt="Google Partner"
+                            className="w-full h-full object-contain"
+                        />
+                    </div>
+                    <div
+                        className="bg-white flex items-center justify-center"
+                        style={{
+                            width: '160px',
+                            height: '120px',
+                            borderRadius: '12px',
+                            boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
+                            padding: '16px',
+                        }}
+                    >
+                        <img
+                            src="/esc_badge.png"
+                            alt="ESC Badge"
+                            className="w-full h-full object-contain"
+                        />
                     </div>
                 </div>
             </div>
