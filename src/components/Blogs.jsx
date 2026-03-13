@@ -11,7 +11,7 @@ const BLOGS = [
         description:
             'Discover how Runtime Solutions helps institutions and corporates build scalable, feature-rich learning management systems with modern tech...',
         image: '/blog1.png',
-        link: '#',
+        link: '/blog/blog-1',
     },
     {
         id: 'blog-2',
@@ -19,7 +19,7 @@ const BLOGS = [
         description:
             'Everything you need to know about conducting, managing, and scaling live classes and webinars within your LMS platform...',
         image: '/blog2.png',
-        link: '#',
+        link: '/blog/blog-2',
     },
     {
         id: 'blog-3',
@@ -27,7 +27,7 @@ const BLOGS = [
         description:
             'Learn how automated certification engines can streamline your training programs, boost credibility, and save administrative hours...',
         image: '/blog3.png',
-        link: '#',
+        link: '/blog/blog-3',
     },
 ];
 
@@ -100,8 +100,6 @@ const Blogs = () => {
                         <a
                             key={id}
                             href={link}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             ref={(el) => (cardRefs.current[i] = el)}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}

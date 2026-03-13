@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [visible, setVisible] = useState(true);
     const [activeSection, setActiveSection] = useState('');
     const lastScrollY = useRef(0);
+    const router = useRouter();
+    const isHomePage = router.pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,28 +24,55 @@ const Navbar = () => {
 
             lastScrollY.current = currentScrollY;
 
-            // Determine active section
-            const sections = ['features', 'benefits', 'collaborations', 'blogs'];
-            let current = '';
-            for (const id of sections) {
-                const el = document.getElementById(id);
-                if (el) {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top <= 120) {
-                        current = id;
+            // Determine active section (only on homepage)
+            if (isHomePage) {
+                const sections = ['features', 'benefits', 'collaborations', 'blogs'];
+                let current = '';
+                for (const id of sections) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top <= 120) {
+                            current = id;
+                        }
                     }
                 }
+                setActiveSection(current);
             }
-            setActiveSection(current);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isHomePage]);
+
+    // Handle hash scrolling after navigating to homepage
+    useEffect(() => {
+        if (isHomePage && window.location.hash) {
+            const sectionId = window.location.hash.replace('#', '');
+            setTimeout(() => {
+                const el = document.getElementById(sectionId);
+                if (el) {
+                    const navbarHeight = 70;
+                    const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            }, 300);
+        }
+    }, [isHomePage, router.asPath]);
 
     const scrollToSection = (e, sectionId) => {
         e.preventDefault();
         setIsOpen(false);
+
+        if (!isHomePage) {
+            // Navigate to homepage with hash
+            if (sectionId === 'home') {
+                router.push('/');
+            } else {
+                router.push(`/#${sectionId}`);
+            }
+            return;
+        }
 
         if (sectionId === 'home') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
