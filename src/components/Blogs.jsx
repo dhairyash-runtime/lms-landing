@@ -10,7 +10,7 @@ const BLOGS = [
         title: 'How Runtime Solutions is Powering the Future of Digital Learning',
         description:
             'Discover how Runtime Solutions helps institutions and corporates build scalable, feature-rich learning management systems with modern tech...',
-        image: '/blog1.jpg',
+        image: '/blog1.png',
         link: '#',
     },
     {
@@ -18,7 +18,7 @@ const BLOGS = [
         title: 'Live Classes & Webinars: The Complete Guide for 2025',
         description:
             'Everything you need to know about conducting, managing, and scaling live classes and webinars within your LMS platform...',
-        image: '/blog2.jpg',
+        image: '/blog2.png',
         link: '#',
     },
     {
@@ -26,7 +26,7 @@ const BLOGS = [
         title: 'Certification Management: Automate & Scale Your Programs',
         description:
             'Learn how automated certification engines can streamline your training programs, boost credibility, and save administrative hours...',
-        image: '/blog3.jpg',
+        image: '/blog3.png',
         link: '#',
     },
 ];

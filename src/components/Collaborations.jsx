@@ -312,7 +312,7 @@ const Collaborations = () => {
                     <div className="flex flex-col md:flex-row items-stretch h-full">
 
                         <img
-                            src="/collab_banner.png"
+                            src="/collab_banner.jpg"
                             alt="Collaborations Banner"
                             className="w-full h-full min-h-[160px] sm:min-h-[220px] md:min-h-[320px] object-cover rounded-[20px] md:rounded-[36px] block"
                         />
