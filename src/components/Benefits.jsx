@@ -1,221 +1,242 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 /* ─────────────────────────────────────────────
    SVG ILLUSTRATIONS
 ───────────────────────────────────────────── */
 
-/** Card 1 – API Lifecycle Management
- *  Shows: laptop open, coloured vertical bar-chart pillars rising from it,
- *  a dashed curved arrow over the top, a small paper-plane icon.
+/** Card 1 – Digital School Platform
+ *  Shows: Open book with graduation cap, floating elements (stars, checkmarks),
+ *  a monitor with dashboard, and connected nodes representing modules.
  */
 const IllustrationLifecycle = () => (
     <svg viewBox="0 0 520 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* ── Laptop body ── */}
-        <rect x="10" y="60" width="195" height="140" rx="10" fill="#1e293b" />
-        {/* screen bezel */}
-        <rect x="18" y="68" width="179" height="115" rx="6" fill="#0f172a" />
-        {/* traffic-light dots */}
-        <circle cx="32" cy="76" r="4" fill="#ef4444" />
-        <circle cx="46" cy="76" r="4" fill="#f59e0b" />
-        <circle cx="60" cy="76" r="4" fill="#22c55e" />
-        {/* screen content – mini bar chart */}
-        <rect x="28" y="92" width="12" height="55" rx="2" fill="#218CA1" opacity="0.35" />
-        <rect x="46" y="108" width="12" height="39" rx="2" fill="#218CA1" opacity="0.55" />
-        <rect x="64" y="87" width="12" height="60" rx="2" fill="#218CA1" opacity="0.75" />
-        <rect x="82" y="98" width="12" height="49" rx="2" fill="#218CA1" opacity="0.95" />
-        <rect x="100" y="80" width="12" height="67" rx="2" fill="#3949AB" opacity="0.7" />
-        <rect x="118" y="92" width="12" height="55" rx="2" fill="#218CA1" opacity="0.5" />
-        {/* baseline */}
-        <line x1="28" y1="150" x2="175" y2="150" stroke="#334155" strokeWidth="1.5" />
-        {/* small text rows */}
-        <rect x="28" y="157" width="80" height="4" rx="2" fill="#334155" />
-        <rect x="28" y="165" width="60" height="4" rx="2" fill="#334155" />
-        {/* laptop base / hinge */}
-        <path d="M10 200 L0 220 L215 220 L205 200 Z" fill="#94a3b8" opacity="0.4" />
-        <rect x="0" y="218" width="215" height="5" rx="2.5" fill="#64748b" opacity="0.6" />
+        {/* ── Open Book ── */}
+        <path d="M60 180 L150 160 L150 60 L60 80 Z" fill="#218CA1" opacity="0.15" />
+        <path d="M150 160 L240 180 L240 80 L150 60 Z" fill="#218CA1" opacity="0.22" />
+        <path d="M150 60 L150 160" stroke="#218CA1" strokeWidth="2" opacity="0.4" />
+        {/* book lines */}
+        <rect x="80" y="95" width="55" height="3" rx="1.5" fill="#218CA1" opacity="0.3" />
+        <rect x="85" y="108" width="48" height="3" rx="1.5" fill="#218CA1" opacity="0.25" />
+        <rect x="82" y="121" width="52" height="3" rx="1.5" fill="#218CA1" opacity="0.2" />
+        <rect x="165" y="90" width="55" height="3" rx="1.5" fill="#218CA1" opacity="0.3" />
+        <rect x="168" y="103" width="50" height="3" rx="1.5" fill="#218CA1" opacity="0.25" />
+        <rect x="163" y="116" width="56" height="3" rx="1.5" fill="#218CA1" opacity="0.2" />
 
-        {/* ── Coloured pillars (right side, rising from a platform) ── */}
-        {/* platform */}
-        <rect x="220" y="195" width="290" height="6" rx="3" fill="#3949AB" opacity="0.8" />
-        {/* pillars */}
-        <rect x="234" y="135" width="32" height="60" rx="4" fill="#218CA1" opacity="0.95" />
-        <rect x="276" y="115" width="32" height="80" rx="4" fill="#DEDB00" opacity="0.9" />
-        <rect x="318" y="95" width="32" height="100" rx="4" fill="#1e293b" opacity="0.9" />
-        <rect x="360" y="130" width="32" height="65" rx="4" fill="#218CA1" opacity="0.7" />
-        <rect x="402" y="110" width="32" height="85" rx="4" fill="#7c3aed" opacity="0.65" />
-        <rect x="444" y="145" width="32" height="50" rx="4" fill="#218CA1" opacity="0.5" />
-        {/* pillar details */}
-        <rect x="240" y="142" width="20" height="4" rx="2" fill="white" opacity="0.5" />
-        <rect x="240" y="152" width="14" height="4" rx="2" fill="white" opacity="0.3" />
-        <rect x="282" y="122" width="20" height="4" rx="2" fill="white" opacity="0.5" />
-        <rect x="324" y="102" width="20" height="4" rx="2" fill="white" opacity="0.5" />
+        {/* ── Graduation cap ── */}
+        <polygon points="150,20 110,42 150,58 190,42" fill="#218CA1" opacity="0.85" />
+        <line x1="150" y1="58" x2="150" y2="60" stroke="#218CA1" strokeWidth="2" />
+        <path d="M128 48 L128 68 Q150 78 172 68 L172 48" stroke="#218CA1" strokeWidth="1.5" fill="none" opacity="0.5" />
+        <line x1="190" y1="42" x2="190" y2="68" stroke="#218CA1" strokeWidth="1.5" opacity="0.6" />
+        <circle cx="190" cy="70" r="3" fill="#DEDB00" opacity="0.8" />
 
-        {/* ── Connection lines from laptop to pillars ── */}
-        <path d="M205 130 Q218 130 234 145" stroke="#218CA1" strokeWidth="1.8" strokeDasharray="5 4" opacity="0.55" fill="none" />
-        <path d="M205 155 Q218 165 234 175" stroke="#218CA1" strokeWidth="1.8" strokeDasharray="5 4" opacity="0.4" fill="none" />
+        {/* ── Monitor with dashboard ── */}
+        <rect x="300" y="50" width="170" height="110" rx="10" fill="#1e293b" />
+        <rect x="308" y="58" width="154" height="85" rx="6" fill="#0f172a" />
+        {/* traffic dots */}
+        <circle cx="320" cy="66" r="3" fill="#ef4444" />
+        <circle cx="332" cy="66" r="3" fill="#f59e0b" />
+        <circle cx="344" cy="66" r="3" fill="#22c55e" />
+        {/* dashboard elements */}
+        <rect x="318" y="78" width="60" height="8" rx="2" fill="#218CA1" opacity="0.6" />
+        <rect x="318" y="92" width="45" height="5" rx="2" fill="#334155" />
+        <rect x="318" y="102" width="55" height="5" rx="2" fill="#334155" />
+        {/* mini chart */}
+        <rect x="398" y="108" width="10" height="22" rx="2" fill="#218CA1" opacity="0.5" />
+        <rect x="414" y="98" width="10" height="32" rx="2" fill="#218CA1" opacity="0.7" />
+        <rect x="430" y="88" width="10" height="42" rx="2" fill="#DEDB00" opacity="0.7" />
+        <rect x="446" y="103" width="10" height="27" rx="2" fill="#218CA1" opacity="0.4" />
+        {/* monitor stand */}
+        <rect x="365" y="160" width="40" height="8" rx="2" fill="#94a3b8" opacity="0.4" />
+        <rect x="355" y="166" width="60" height="5" rx="2.5" fill="#64748b" opacity="0.5" />
 
-        {/* ── Dashed curved arc (top) ── */}
-        <path d="M240 70 Q360 20 480 65" stroke="#218CA1" strokeWidth="2" strokeDasharray="8 6" opacity="0.45" fill="none" />
+        {/* ── Floating elements ── */}
+        <circle cx="270" cy="40" r="12" fill="#DEDB00" opacity="0.2" />
+        <path d="M266 40 L270 34 L274 40" stroke="#DEDB00" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+        <path d="M270 44 L270 36" stroke="#DEDB00" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
 
-        {/* ── Paper-plane icon ── */}
-        <path d="M455 50 L490 38 L478 72 L468 60 Z" fill="#218CA1" opacity="0.85" />
-        <path d="M468 60 L478 72" stroke="#218CA1" strokeWidth="1.5" opacity="0.6" fill="none" />
-        <path d="M455 50 L468 60" stroke="white" strokeWidth="1.2" opacity="0.7" fill="none" />
+        {/* checkmark circle */}
+        <circle cx="280" cy="160" r="16" fill="#218CA1" opacity="0.12" />
+        <path d="M272 160 L278 166 L290 154" stroke="#218CA1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
 
-        {/* ── Pie / donut in laptop corner ── */}
-        <circle cx="162" cy="108" r="18" fill="none" stroke="#218CA1" strokeWidth="9"
-            strokeDasharray="25 88" strokeDashoffset="0" opacity="0.5" />
-        <circle cx="162" cy="108" r="18" fill="none" stroke="#3949AB" strokeWidth="9"
-            strokeDasharray="18 95" strokeDashoffset="-25" opacity="0.45" />
-        <circle cx="162" cy="108" r="18" fill="none" stroke="#f59e0b" strokeWidth="9"
-            strokeDasharray="10 103" strokeDashoffset="-43" opacity="0.4" />
+        {/* star */}
+        <path d="M490 30 L493 38 L502 38 L495 43 L498 52 L490 47 L482 52 L485 43 L478 38 L487 38 Z" fill="#DEDB00" opacity="0.5" />
+
+        {/* connection dashes */}
+        <path d="M240 150 Q270 140 300 120" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.35" fill="none" />
+        <path d="M190 45 Q230 40 300 70" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.3" fill="none" />
     </svg>
 );
 
-/** Card 2 – Cloud Native
- *  Shows: bold orange cloud shape (layered), dashed orbit rings, phone silhouette on the right edge.
+/** Card 2 – Corporate Training Suite
+ *  Shows: Presentation screen with chart, seated figures, briefcase, trophy icon.
  */
 const IllustrationCloud = () => (
     <svg viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* ── Dashed orbit arcs ── */}
-        <ellipse cx="230" cy="130" rx="185" ry="115" stroke="#218CA1" strokeWidth="2"
-            strokeDasharray="10 8" opacity="0.25" fill="none" />
-        <ellipse cx="230" cy="130" rx="140" ry="88" stroke="#218CA1" strokeWidth="1.5"
-            strokeDasharray="7 6" opacity="0.18" fill="none" />
+        {/* ── Presentation Board ── */}
+        <rect x="120" y="20" width="240" height="150" rx="10" fill="#1e293b" />
+        <rect x="128" y="28" width="224" height="120" rx="6" fill="#0f172a" />
+        {/* traffic dots */}
+        <circle cx="142" cy="38" r="3.5" fill="#ef4444" />
+        <circle cx="154" cy="38" r="3.5" fill="#f59e0b" />
+        <circle cx="166" cy="38" r="3.5" fill="#22c55e" />
+        {/* chart inside */}
+        <rect x="148" y="60" width="80" height="6" rx="2" fill="#218CA1" opacity="0.6" />
+        <rect x="148" y="74" width="60" height="4" rx="2" fill="#334155" />
+        <rect x="148" y="84" width="70" height="4" rx="2" fill="#334155" />
+        {/* bar chart */}
+        <rect x="260" y="105" width="14" height="28" rx="2" fill="#218CA1" opacity="0.4" />
+        <rect x="280" y="90" width="14" height="43" rx="2" fill="#218CA1" opacity="0.65" />
+        <rect x="300" y="75" width="14" height="58" rx="2" fill="#DEDB00" opacity="0.7" />
+        <rect x="320" y="95" width="14" height="38" rx="2" fill="#218CA1" opacity="0.5" />
+        {/* rising trend */}
+        <polyline points="267,110 287,95 307,78 327,88" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
+        {/* board stand */}
+        <line x1="240" y1="170" x2="220" y2="210" stroke="#64748b" strokeWidth="2.5" opacity="0.5" />
+        <line x1="240" y1="170" x2="260" y2="210" stroke="#64748b" strokeWidth="2.5" opacity="0.5" />
 
-        {/* ── Cloud layers (orange → white) ── */}
-        {/* outermost glow */}
-        <path d="M118 170 Q82 170 68 148 Q54 126 72 108 Q72 78 104 72
-             Q118 52 144 58 Q162 40 188 46 Q214 28 238 36
-             Q266 22 290 42 Q322 34 338 58 Q366 50 378 76
-             Q398 88 386 112 Q402 136 378 152
-             Q376 172 350 172 Z"
-            fill="#218CA1" opacity="0.08" />
-        {/* mid cloud */}
-        <path d="M128 163 Q96 163 84 144 Q72 126 87 110 Q88 84 116 79
-             Q128 62 152 67 Q168 51 191 56 Q215 40 237 48
-             Q261 34 282 50 Q308 44 320 65 Q342 58 352 80
-             Q368 90 358 112 Q372 132 352 146 Q350 163 328 164 Z"
-            fill="#218CA1" opacity="0.18" />
-        {/* inner cloud */}
-        <path d="M140 156 Q112 156 102 140 Q92 124 104 112 Q105 90 128 86
-             Q140 72 160 76 Q174 62 194 67 Q216 53 235 60
-             Q256 48 272 62 Q294 57 302 76 Q316 85 308 104
-             Q320 120 302 133 Q300 148 282 150 Z"
-            fill="#218CA1" opacity="0.32" />
-        {/* main white cloud */}
-        <path d="M154 148 Q132 148 124 136 Q116 124 126 114 Q127 96 146 93
-             Q156 82 172 85 Q184 73 200 77 Q218 66 232 73
-             Q250 63 264 75 Q282 71 288 87 Q298 94 292 110
-             Q302 124 286 133 Q284 145 268 146 Z"
-            fill="white" opacity="0.96" />
+        {/* ── Seated person 1 (left) ── */}
+        <circle cx="70" cy="170" r="14" fill="#218CA1" opacity="0.25" />
+        <circle cx="70" cy="167" r="9" fill="#218CA1" opacity="0.6" />
+        <path d="M52 200 Q70 188 88 200" stroke="#218CA1" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5" />
+        {/* laptop */}
+        <rect x="56" y="195" width="28" height="18" rx="3" fill="#1e293b" opacity="0.7" />
+        <rect x="59" y="198" width="22" height="10" rx="2" fill="#0f172a" />
 
-        {/* ── Upload arrow inside cloud ── */}
-        <path d="M202 104 L210 94 L218 104" stroke="#218CA1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="210" y1="94" x2="210" y2="122" stroke="#218CA1" strokeWidth="2.5" strokeLinecap="round" />
+        {/* ── Seated person 2 (right) ── */}
+        <circle cx="410" cy="170" r="14" fill="#218CA1" opacity="0.25" />
+        <circle cx="410" cy="167" r="9" fill="#218CA1" opacity="0.6" />
+        <path d="M392 200 Q410 188 428 200" stroke="#218CA1" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5" />
+        {/* laptop */}
+        <rect x="396" y="195" width="28" height="18" rx="3" fill="#1e293b" opacity="0.7" />
+        <rect x="399" y="198" width="22" height="10" rx="2" fill="#0f172a" />
 
-        {/* ── Small node circles ── */}
-        <circle cx="72" cy="82" r="16" fill="white" opacity="0.95" />
-        <rect x="62" y="75" width="20" height="14" rx="3" fill="#3949AB" opacity="0.55" />
-        <circle cx="72" cy="82" r="16" fill="none" stroke="#3949AB" strokeWidth="1.5" opacity="0.4" />
+        {/* ── Trophy icon (top-right) ── */}
+        <rect x="400" y="22" width="28" height="20" rx="4" fill="#DEDB00" opacity="0.7" />
+        <path d="M405 42 Q414 50 423 42" fill="#DEDB00" opacity="0.5" />
+        <rect x="410" y="48" width="8" height="3" rx="1.5" fill="#DEDB00" opacity="0.5" />
+        <path d="M398 28 Q392 22 398 16" stroke="#DEDB00" strokeWidth="1.5" fill="none" opacity="0.5" />
+        <path d="M430 28 Q436 22 430 16" stroke="#DEDB00" strokeWidth="1.5" fill="none" opacity="0.5" />
 
-        <circle cx="380" cy="88" r="16" fill="white" opacity="0.95" />
-        <rect x="370" y="81" width="20" height="14" rx="3" fill="#3949AB" opacity="0.55" />
-        <circle cx="380" cy="88" r="16" fill="none" stroke="#3949AB" strokeWidth="1.5" opacity="0.4" />
+        {/* ── Briefcase icon (bottom-left) ── */}
+        <rect x="20" y="112" width="36" height="28" rx="5" fill="#218CA1" opacity="0.2" />
+        <rect x="30" y="106" width="16" height="8" rx="3" fill="none" stroke="#218CA1" strokeWidth="1.5" opacity="0.4" />
+        <line x1="20" y1="122" x2="56" y2="122" stroke="#218CA1" strokeWidth="1.5" opacity="0.3" />
 
-        <circle cx="100" cy="205" r="13" fill="white" opacity="0.9" />
-        <rect x="92" y="199" width="16" height="12" rx="2" fill="#218CA1" opacity="0.5" />
-
-        {/* ── Dashes from nodes to cloud ── */}
-        <path d="M86 88  Q110 100 120 118" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.35" fill="none" />
-        <path d="M365 95 Q340 108 310 120" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.35" fill="none" />
-        <path d="M108 198 Q126 178 134 160" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.3" fill="none" />
-
-        {/* ── Phone silhouette (right edge) ── */}
-        <rect x="434" y="70" width="38" height="68" rx="7" fill="#1e293b" opacity="0.85" />
-        <rect x="438" y="76" width="30" height="48" rx="4" fill="#0f172a" />
-        <rect x="448" y="122" width="10" height="4" rx="2" fill="#334155" />
-        <rect x="440" y="80" width="26" height="4" rx="2" fill="#218CA1" opacity="0.5" />
-        <rect x="440" y="88" width="20" height="3" rx="1.5" fill="#334155" />
-        <rect x="440" y="95" width="22" height="3" rx="1.5" fill="#334155" />
-        <rect x="440" y="102" width="18" height="3" rx="1.5" fill="#334155" />
+        {/* ── Connection lines ── */}
+        <path d="M88 185 Q110 170 120 150" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.3" fill="none" />
+        <path d="M392 185 Q370 170 360 150" stroke="#218CA1" strokeWidth="1.5" strokeDasharray="5 4" opacity="0.3" fill="none" />
     </svg>
 );
 
-/** Card 3 – Built for scale & performance  (small card) */
+/** Card 3 – White-Label Platform  (small card)
+ *  Shows: Branded UI frame with palette/brush, customizable logo area.
+ */
 const IllustrationScale = () => (
     <svg viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* bars */}
-        <rect x="12" y="82" width="18" height="36" rx="3" fill="#218CA1" opacity="0.25" />
-        <rect x="36" y="64" width="18" height="54" rx="3" fill="#218CA1" opacity="0.45" />
-        <rect x="60" y="44" width="18" height="74" rx="3" fill="#218CA1" opacity="0.7" />
-        <rect x="84" y="28" width="18" height="90" rx="3" fill="#218CA1" opacity="0.95" />
-        <rect x="108" y="52" width="18" height="66" rx="3" fill="#3949AB" opacity="0.55" />
-        {/* trend line */}
-        <polyline points="21,92 45,72 69,52 93,36" stroke="#1e293b" strokeWidth="2.5"
-            strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        {/* arrow head */}
-        <path d="M86 33 L95 30 L92 40" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        {/* baseline */}
-        <line x1="8" y1="122" x2="132" y2="122" stroke="#94a3b8" strokeWidth="1.5" opacity="0.5" />
+        {/* browser frame */}
+        <rect x="10" y="12" width="120" height="85" rx="8" fill="#1e293b" />
+        <rect x="10" y="12" width="120" height="18" rx="8" fill="#0f172a" />
+        <circle cx="24" cy="21" r="3" fill="#ef4444" />
+        <circle cx="34" cy="21" r="3" fill="#f59e0b" />
+        <circle cx="44" cy="21" r="3" fill="#22c55e" />
+        {/* content area */}
+        <rect x="18" y="36" width="44" height="6" rx="2" fill="#218CA1" opacity="0.6" />
+        <rect x="18" y="48" width="34" height="4" rx="2" fill="#334155" />
+        <rect x="18" y="56" width="40" height="4" rx="2" fill="#334155" />
+        {/* logo placeholder */}
+        <rect x="85" y="38" width="36" height="26" rx="4" fill="#218CA1" opacity="0.15" stroke="#218CA1" strokeWidth="1" strokeDasharray="3 2" />
+        <text x="94" y="55" fontSize="8" fill="#218CA1" opacity="0.6" fontWeight="500">LOGO</text>
+        {/* color palette */}
+        <circle cx="30" cy="112" r="9" fill="#218CA1" opacity="0.8" />
+        <circle cx="52" cy="112" r="9" fill="#DEDB00" opacity="0.8" />
+        <circle cx="74" cy="112" r="9" fill="#1e293b" opacity="0.8" />
+        <circle cx="96" cy="112" r="9" fill="#ec4899" opacity="0.4" />
+        {/* paint brush hint */}
+        <path d="M115 100 L122 108 L118 112 L112 104 Z" fill="#218CA1" opacity="0.4" />
+        <rect x="109" y="103" width="4" height="14" rx="2" fill="#64748b" opacity="0.4" transform="rotate(-40, 111, 110)" />
     </svg>
 );
 
-/** Card 4 – Secure  (small card) */
+/** Card 4 – Cloud Hosting  (small card)
+ *  Shows: Cloud with server rack nodes, uptime arrow, shield accent.
+ */
 const IllustrationSecure = () => (
     <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* shield layers */}
-        <path d="M65 10 L18 30 L18 65 Q18 98 65 115 Q112 98 112 65 L112 30 Z"
-            fill="#218CA1" opacity="0.08" />
-        <path d="M65 18 L26 35 L26 65 Q26 92 65 107 Q104 92 104 65 L104 35 Z"
-            fill="#218CA1" opacity="0.18" />
-        <path d="M65 28 L36 42 L36 65 Q36 87 65 100 Q94 87 94 65 L94 42 Z"
-            fill="#218CA1" opacity="0.9" />
-        {/* checkmark */}
-        <path d="M50 64 L60 74 L82 52" stroke="white" strokeWidth="4.5"
-            strokeLinecap="round" strokeLinejoin="round" />
-        {/* lock shackle on shield */}
-        <rect x="54" y="38" width="22" height="16" rx="4" fill="white" opacity="0.25" />
-        <path d="M59 38 Q59 29 65 29 Q71 29 71 38" stroke="white" strokeWidth="2.2"
-            fill="none" strokeLinecap="round" />
-        {/* floating key card */}
-        <rect x="4" y="85" width="50" height="28" rx="7" fill="white"
-            style={{ filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.12))' }} />
-        <circle cx="18" cy="99" r="6" fill="#218CA1" opacity="0.3" />
-        <circle cx="18" cy="99" r="3.5" fill="#218CA1" />
-        <line x1="21" y1="99" x2="36" y2="99" stroke="#218CA1" strokeWidth="2" strokeLinecap="round" />
-        <line x1="33" y1="99" x2="33" y2="104" stroke="#218CA1" strokeWidth="2" strokeLinecap="round" />
-        <line x1="29" y1="99" x2="29" y2="103" stroke="#218CA1" strokeWidth="2" strokeLinecap="round" />
-        {/* RBAC tag */}
-        <rect x="76" y="88" width="50" height="22" rx="11" fill="#218CA1" opacity="0.12" />
-        <text x="85" y="103" fontSize="9" fill="#218CA1" fontWeight="600">RBAC</text>
+        {/* cloud shape */}
+        <path d="M30 85 Q12 85 12 68 Q12 52 28 48 Q32 30 52 32 Q62 18 80 24 Q98 16 108 32 Q122 38 118 56 Q128 68 118 80 Q116 90 100 88 Z"
+            fill="#218CA1" opacity="0.12" />
+        <path d="M36 80 Q22 80 20 66 Q18 54 32 50 Q35 36 52 38 Q60 26 76 30 Q90 22 100 34 Q112 38 108 52 Q118 62 110 74 Q108 82 96 82 Z"
+            fill="#218CA1" opacity="0.25" />
+        {/* cloud icon */}
+        <path d="M45 70 Q35 70 34 60 Q33 50 42 48 Q44 38 55 40 Q60 32 70 35 Q80 30 86 38 Q94 40 92 50 Q98 56 92 64 Q90 70 82 68 Z"
+            fill="white" opacity="0.95" />
+        {/* upload arrow */}
+        <path d="M60 52 L65 46 L70 52" stroke="#218CA1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="65" y1="46" x2="65" y2="62" stroke="#218CA1" strokeWidth="2" strokeLinecap="round" />
+
+        {/* server nodes */}
+        <rect x="8" y="95" width="35" height="22" rx="4" fill="white" style={{ filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.1))' }} />
+        <circle cx="17" cy="106" r="3" fill="#22c55e" />
+        <rect x="24" y="103" width="14" height="3" rx="1.5" fill="#334155" opacity="0.5" />
+        <rect x="24" y="109" width="10" height="2" rx="1" fill="#334155" opacity="0.3" />
+
+        <rect x="87" y="95" width="35" height="22" rx="4" fill="white" style={{ filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.1))' }} />
+        <circle cx="96" cy="106" r="3" fill="#22c55e" />
+        <rect x="103" y="103" width="14" height="3" rx="1.5" fill="#334155" opacity="0.5" />
+        <rect x="103" y="109" width="10" height="2" rx="1" fill="#334155" opacity="0.3" />
+
+        {/* connection lines */}
+        <path d="M40 95 Q50 85 55 70" stroke="#218CA1" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.4" fill="none" />
+        <path d="M90 95 Q80 85 75 70" stroke="#218CA1" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.4" fill="none" />
+
+        {/* uptime badge */}
+        <rect x="42" y="96" width="46" height="18" rx="9" fill="#218CA1" opacity="0.12" />
+        <text x="48" y="109" fontSize="9" fill="#218CA1" fontWeight="600">99.9%</text>
     </svg>
 );
 
-/** Card 5 – Developer Centric  (small card) */
+/** Card 5 – Custom Feature Integration  (small card)
+ *  Shows: Puzzle pieces fitting together with gear and API connection nodes.
+ */
 const IllustrationDev = () => (
     <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        {/* code editor window */}
-        <rect x="8" y="12" width="114" height="80" rx="9" fill="#1e293b" />
-        <rect x="8" y="12" width="114" height="20" rx="9" fill="#0f172a" />
-        {/* traffic dots */}
-        <circle cx="22" cy="22" r="4" fill="#ef4444" />
-        <circle cx="34" cy="22" r="4" fill="#f59e0b" />
-        <circle cx="46" cy="22" r="4" fill="#22c55e" />
-        {/* code lines */}
-        <rect x="18" y="40" width="50" height="5" rx="2.5" fill="#218CA1" opacity="0.85" />
-        <rect x="18" y="52" width="70" height="4" rx="2" fill="#334155" />
-        <rect x="28" y="61" width="58" height="4" rx="2" fill="#334155" />
-        <rect x="28" y="70" width="45" height="4" rx="2" fill="#334155" />
-        <rect x="18" y="79" width="60" height="4" rx="2" fill="#334155" />
-        {/* bracket watermark */}
-        <text x="82" y="75" fontSize="32" fill="#218CA1" opacity="0.12" fontWeight="bold">{`</>`}</text>
-        {/* person */}
-        <circle cx="65" cy="108" r="10" fill="#218CA1" opacity="0.2" />
-        <circle cx="65" cy="105" r="6" fill="#218CA1" opacity="0.65" />
-        <path d="M52 120 Q65 112 78 120" stroke="#218CA1" strokeWidth="2.2" strokeLinecap="round" />
+        {/* puzzle piece 1 (top-left) */}
+        <path d="M20 30 L50 30 L50 40 Q58 36 58 44 Q58 52 50 48 L50 58 L20 58 L20 48 Q12 52 12 44 Q12 36 20 40 Z"
+            fill="#218CA1" opacity="0.7" />
+        {/* puzzle piece 2 (top-right) */}
+        <path d="M52 30 L82 30 L82 40 Q90 36 90 44 Q90 52 82 48 L82 58 L52 58 L52 48 Q60 52 60 44 Q60 36 52 40 Z"
+            fill="#DEDB00" opacity="0.7" />
+        {/* puzzle piece 3 (bottom-left) */}
+        <path d="M20 60 L50 60 L50 70 Q58 66 58 74 Q58 82 50 78 L50 88 L20 88 L20 78 Q12 82 12 74 Q12 66 20 70 Z"
+            fill="#1e293b" opacity="0.5" />
+        {/* puzzle piece 4 (bottom-right) */}
+        <path d="M52 60 L82 60 L82 70 Q90 66 90 74 Q90 82 82 78 L82 88 L52 88 L52 78 Q60 82 60 74 Q60 66 52 70 Z"
+            fill="#218CA1" opacity="0.35" />
+
+        {/* gear icon */}
+        <circle cx="108" cy="35" r="14" fill="#218CA1" opacity="0.12" />
+        <circle cx="108" cy="35" r="8" fill="none" stroke="#218CA1" strokeWidth="2" opacity="0.6" />
+        <circle cx="108" cy="35" r="3" fill="#218CA1" opacity="0.5" />
+        {/* gear teeth */}
+        <rect x="106" y="20" width="4" height="6" rx="1" fill="#218CA1" opacity="0.5" />
+        <rect x="106" y="44" width="4" height="6" rx="1" fill="#218CA1" opacity="0.5" />
+        <rect x="93" y="33" width="6" height="4" rx="1" fill="#218CA1" opacity="0.5" />
+        <rect x="117" y="33" width="6" height="4" rx="1" fill="#218CA1" opacity="0.5" />
+
+        {/* API connection nodes */}
+        <circle cx="108" cy="95" r="10" fill="white" style={{ filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.1))' }} />
+        <text x="100" y="99" fontSize="8" fill="#218CA1" fontWeight="700">API</text>
+
+        {/* connecting lines */}
+        <path d="M82 44 Q95 42 96 35" stroke="#218CA1" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.4" fill="none" />
+        <path d="M82 74 Q95 80 105 87" stroke="#218CA1" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.4" fill="none" />
+        <path d="M108 50 L108 83" stroke="#218CA1" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.4" fill="none" />
+
+        {/* small floating dots */}
+        <circle cx="25" cy="105" r="5" fill="#DEDB00" opacity="0.3" />
+        <circle cx="55" cy="112" r="4" fill="#218CA1" opacity="0.2" />
+        <circle cx="40" cy="120" r="3" fill="#1e293b" opacity="0.15" />
     </svg>
 );
 
@@ -259,17 +280,14 @@ const LARGE_CARDS = [
         title: 'Digital School Platform',
         description:
             'A complete digital school solution for institutions — with course management, student tracking, teacher coordination, exams, and certification systems.',
-        // Lottie animation — replaces the SVG illustration for this card
-        lottieUrl: 'https://lottie.host/5c4f72d9-9a96-444e-b4d1-b6437989d5d1/QsUrKeZaFc.lottie',
-        Illustration: IllustrationLifecycle, // fallback
+        Illustration: IllustrationLifecycle,
     },
     {
         id: 'corporate-training',
         title: 'Corporate Training Suite',
         description:
             'Build a scalable training platform for corporates — with employee onboarding modules, skill development tracks, performance analytics, and certification management.',
-        lottieUrl: 'https://lottie.host/a4bc684c-bf70-41e8-b72c-eba61db94c88/bJbzYF3JU5.lottie',
-        Illustration: IllustrationCloud, // fallback
+        Illustration: IllustrationCloud,
     },
 ];
 
@@ -376,7 +394,7 @@ const Benefits = () => {
 
                     {/* top row – 2 large cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7 mb-5 md:mb-7">
-                        {LARGE_CARDS.map(({ id, title, description, Illustration, lottieUrl }, i) => (
+                        {LARGE_CARDS.map(({ id, title, description, Illustration }, i) => (
                             <div
                                 key={id}
                                 ref={(el) => (cardRefs.current[i] = el)}
@@ -393,22 +411,11 @@ const Benefits = () => {
                                         {description}
                                     </p>
                                 </div>
-                                {/* illustration block — Lottie if available, else SVG */}
+                                {/* illustration block */}
                                 <div className="flex-1 flex items-end justify-center px-4 md:px-8 pb-0" style={{ minHeight: 240 }}>
-                                    {lottieUrl ? (
-                                        <div className="w-full" style={{ height: 240 }}>
-                                            <DotLottieReact
-                                                src={lottieUrl}
-                                                loop
-                                                autoplay
-                                                style={{ width: '100%', height: '100%' }}
-                                            />
-                                        </div>
-                                    ) : (
-                                        <div className="w-full" style={{ height: 240 }}>
-                                            <Illustration />
-                                        </div>
-                                    )}
+                                    <div className="w-full" style={{ height: 240 }}>
+                                        <Illustration />
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -444,8 +451,8 @@ const Benefits = () => {
                     </div>
 
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 
